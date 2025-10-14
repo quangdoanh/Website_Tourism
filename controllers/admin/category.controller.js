@@ -232,6 +232,8 @@ module.exports.editPatch = async (req, res) => {
 
     // updata Model
 
+    console.log("dữ liệu req:".req.body)
+
     await Category.updateOne({
       _id: id,
       deleted: false

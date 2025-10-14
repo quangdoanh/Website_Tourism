@@ -61,20 +61,13 @@ if (loginForm) {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.code == "error") {
-            alert(data.message)
-          }
-
           if (data.code == "success") {
+            console.log("Chạy thành công")
             window.location.href = `/${pathAdmin}/dashboard`;
           }
         })
 
-
-
-
-    })
-    ;
+    });
 }
 // End Login Form
 

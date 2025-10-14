@@ -46,7 +46,7 @@ module.exports.list = async (req, res) => {
         find.createdAt = FilterDate;
     }
 
-    // Tìm kiếm không theo slug
+    // Tìm kiếm không theo slug search
     if (req.query.keyword) {
 
         const keyword = req.query.keyword;
@@ -93,7 +93,7 @@ module.exports.list = async (req, res) => {
     const orderList = await Order
         .find(find)
         .sort({
-            createdAt: "desc"
+            createdAt: "desc" // asc
         })
         .limit(limit)
         .skip(skip)
@@ -109,8 +109,15 @@ module.exports.list = async (req, res) => {
 
     }
 
+    // return res.status(400).json({
+    //   code: "error",
+    //   message: "Thiếu thông tin bắt buộc"
+    // });
 
 
+    // res.json({
+    //     orderList: orderList,
+    // })
 
     res.render('admin/pages/order-list', {
         pageTitle: "Danh sách order",
@@ -177,7 +184,7 @@ module.exports.editPatch = async (req, res) => {
 
         req.flash("success", "Cập nhật đơn hàng thành công!");
 
-        res.json({
+        res.status(500).json({
             code: "success"
         })
     } catch (error) {

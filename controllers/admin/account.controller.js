@@ -125,8 +125,6 @@ module.exports.loginPost = async (req, res) => {
         sameSite: "strict"
     })
 
-
-
     console.log("Body:", req.body);
     console.log("Token:", token);
 

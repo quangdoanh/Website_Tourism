@@ -452,6 +452,11 @@ if (orderForm) {
                   // Chuyển hướng sang trang thanh toán bằng ZaloPay
                   window.location.href = `/order/payment-zalopay?orderId=${data.orderId}`;
                   break;
+                case "vnpay":
+                  // Chuyển hướng sang trang thanh toán bằng VNPay
+                  window.location.href = `/order/payment-vnpay?orderId=${data.orderId}`;
+                  break;
+
               }
 
             }
@@ -575,6 +580,7 @@ if (formSearch) {
 const boxTourDetail = document.querySelector(".box-tour-detail");
 if (boxTourDetail) {
   // Bước 1
+  // khai báo input giá
   const inputStockAdult = document.querySelector("[input-stock-adult]");
   const inputStockChildren = document.querySelector("[input-stock-children]");
   const inputStockBaby = document.querySelector("[input-stock-baby]");
@@ -585,6 +591,7 @@ if (boxTourDetail) {
     const quantityChildren = parseInt(inputStockChildren.value);
     const quantityBaby = parseInt(inputStockBaby.value);
 
+    // khai báo phần :0*giá
     const stockAdult = document.querySelector("[stock-adult]");
     const stockChildren = document.querySelector("[stock-children]");
     const stockBaby = document.querySelector("[stock-baby]");

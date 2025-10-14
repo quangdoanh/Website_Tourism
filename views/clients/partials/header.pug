@@ -43,10 +43,16 @@ header.header
             li
               a(href=`/category/${item.slug}`) #{item.name}
                 i.fa-solid.fa-caret-down
-                ul
-                  each itemChild in item.children
-                    li
-                      a(href=`/category/${itemChild.slug}`) #{itemChild.name}
+              ul
+                each itemChild in item.children
+                  li
+                    a(href=`/category/${itemChild.slug}`) #{itemChild.name}
+                      i.fa-solid.fa-caret-down
+                    ul
+                      each itemChild2 in itemChild.children
+                        li
+                          a(href=`/category/${itemChild2.slug}`) #{itemChild2.name}
+                            i.fa-solid.fa-caret-down
           li
             a(href="#news") Tin tức
           li

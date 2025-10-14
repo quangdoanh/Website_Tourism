@@ -26,6 +26,7 @@ module.exports.info = async (req, res) => {
     const settingWebsiteInfo = await SettingWebsiteInfo.findOne({});
 
     console.log(settingWebsiteInfo);
+
     res.render('admin/pages/setting-website-info', {
         pageTitle: "Thông tin website",
         settingWebsiteInfo: settingWebsiteInfo
@@ -234,6 +235,8 @@ module.exports.accountAdminEdit = async (req, res) => {
 }
 module.exports.accountAdminEditPatch = async (req, res) => {
     console.log('Chạy vào đây')
+
+    console.log("nè nè", req.body)
     try {
         const id = req.params.id;
 
@@ -629,8 +632,14 @@ module.exports.roleCreatePost = async (req, res) => {
 
     req.flash("success", "Tạo nhóm quyền thành công!");
 
+    // return res.status(400).json({
+    //   code: "error",
+    //   message: "Thiếu thông tin bắt buộc"
+    // });
+
     res.json({
-        code: "success"
+        code: "success",
+        newRecord: newRecord
     })
 }
 

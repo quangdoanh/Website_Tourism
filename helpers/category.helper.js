@@ -1,5 +1,5 @@
 const Category = require("../models/category.model");
-// Lấy cây danh mục
+// Lấy cây danh mục (lấy id của cha so sánh với các id con )
 const CategoryTree = (Categories, itemParent = "") => {
     const tree = [];
 
