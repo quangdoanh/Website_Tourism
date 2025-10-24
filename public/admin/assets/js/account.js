@@ -64,6 +64,8 @@ if (loginForm) {
           if (data.code == "success") {
             console.log("Chạy thành công")
             window.location.href = `/${pathAdmin}/dashboard`;
+          } else {
+            alert(data.message)
           }
         })
 
